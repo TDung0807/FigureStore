@@ -1,12 +1,16 @@
+
 .sec__padding{
     padding: 1rem 1rem;
 }
 .footer{
     background-color: #2d2d32;
+    width: 100%;
 }
 .sb__footer{
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .sb__footer-links{
@@ -50,13 +54,16 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 0.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 10px;
 }
 
 .sb__footer-below-links{
     display: flex;
     flex-direction: row;
+    margin-top: 0.5rem;
     margin-left: 15px;
+    margin-right: 2rem;
 }
 
 .sb__footer-below-links p{
@@ -68,7 +75,7 @@ a{
 }
 .sb__footer-copyright p{
     font-size: 13px;
-    line-height: 15px;
+    /*line-height: 15px;*/
     margin-left: 2rem;
     color: rgb(255, 255, 255);
     font-weight: 300;

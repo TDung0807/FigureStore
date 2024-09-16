@@ -16,6 +16,8 @@ const App = () => {
         <h1>This is a Heading 5</h1>
         <h1>This is a Heading 6</h1>
         <h1>This is a Heading 7</h1>
+        <h1>This is a Heading 8</h1>
+        <h1>This is a Heading 9</h1>
       </div>
       <div id="footer">
         <Footer/>
