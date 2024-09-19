@@ -6,11 +6,15 @@ import Product from './assets/Product/product.json';
 import Pagination from './components/Pagination/Pagination';
 import './index.css';
 
-const ITEMS_PER_PAGE = 8; 
+const ITEMS_PER_PAGE = 8; // Number of items per page
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate total pages
   const totalPages = Math.ceil(Product.length / ITEMS_PER_PAGE);
+
+  // Get items for the current page
   const currentItems = Product.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE

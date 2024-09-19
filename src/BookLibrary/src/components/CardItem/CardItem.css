@@ -3,7 +3,7 @@
     border-radius: 8px;
     padding: 16px;
     text-align: center;
-    width: 100%; /* Full width within grid cell */
+    width: 100%; /* Full width of the grid cell */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     outline: none; /* Removes default focus outline */

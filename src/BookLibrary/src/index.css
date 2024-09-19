@@ -23,13 +23,21 @@ html, body, #root, #wrapper {
 #main {
   flex: 1;
   margin-left: 20px;
+  display: flex;
+  flex-direction: column; /* Stack rows vertically */
+  align-items: center; /* Center rows horizontally */
 }
+
 
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
-  gap: 16px; /* Space between grid items */
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 20px; /* Space between items */
+  width: 100%; /* Full width of the container */
+  max-width: 1200px; /* Adjust based on your design */
+  padding: 0 20px; /* Padding on the sides */
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
@@ -39,7 +47,7 @@ html, body, #root, #wrapper {
 }
 
 @media (max-width: 900px) {
-  .container {
+  .container {  
     grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
   }
 }
