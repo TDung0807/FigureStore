@@ -6,7 +6,7 @@ const Navbar = () => {
             <a href="/" className="logo">Logo</a>
             <div className="input-wrapper">
                 <div className='searchIcon'>
-                    <img src='src\assets\search-icon.png'></img>
+                    <img src='src\assets\Image\search-icon.png'></img>
                 </div>
                 <div className="searchInput">
                     <input placeholder='Type to search...'></input>
