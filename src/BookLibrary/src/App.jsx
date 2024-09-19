@@ -1,29 +1,49 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
+import React, { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import CardItem from './components/CardItem/CardItem';
+import Product from './assets/Product/product.json';
+import Pagination from './components/Pagination/Pagination';
+import './index.css';
+
+const ITEMS_PER_PAGE = 8; 
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(Product.length / ITEMS_PER_PAGE);
+  const currentItems = Product.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   return (
     <div id="wrapper">
       <div id="header">
-        <Navbar/>
+        <Navbar />
       </div>
       <div id="main">
-        <h1>This is a Heading 1</h1>
-        <h1>This is a Heading 2</h1>
-        <h1>This is a Heading 3</h1>
-        <h1>This is a Heading 4</h1>
-        <h1>This is a Heading 5</h1>
-        <h1>This is a Heading 6</h1>
-        <h1>This is a Heading 7</h1>
-        <h1>This is a Heading 8</h1>
-        <h1>This is a Heading 9</h1>
+        <div className="container">
+          {currentItems.map((item, index) => (
+            <CardItem
+              key={index}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              alt={item.alt}
+            />
+          ))}
+        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
       <div id="footer">
-        <Footer/>
+        <Footer />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
