@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import json
 from playwright.sync_api import sync_playwright
+from datetime import datetime
 
 # URL of the page to scrape (replace with actual page URL)
 ROOTURL = "https://mfigure.com"
@@ -57,14 +58,18 @@ if response.status_code == 200:
                         height_match = re.search(r'Chiều Cao\s*:\s*(.+)', detail)
                         release_date_match = re.search(r'Ngày Phát Hành\s*:\s*(.+)', detail)
                 
+                date_text = release_date_match.group(1).strip() if release_date_match else "T1/2024"
+                release_date = date_text.replace("T", "")
+                date_string = f"{release_date[-4:]}-01-{release_date[0]:02}"
+                
                 # Construct the item dictionary
                 item = {
-                    "ID": product_id,
+                    "ID": str(product_id),
                     "Name": name_match.group(1).strip() if name_match else None,
                     "Brand": brand_match.group(1).strip() if brand_match else None,
                     "Material": material_match.group(1).strip() if material_match else None,
                     "Height": height_match.group(1).strip() if height_match else None,
-                    "Release_date": release_date_match.group(1).strip() if release_date_match else None,
+                    "Release_date": date_string,
                     "Title": tag_title,
                     "URL": purl,
                     "ImageURL": tag_status_img_url,
@@ -76,7 +81,7 @@ if response.status_code == 200:
         browser.close()
 
     # Write items list to a JSON file
-    with open('products.json', 'w', encoding='utf-8') as json_file:
+    with open('crawlData\products.json', 'w', encoding='utf-8') as json_file:
         json.dump(items, json_file, ensure_ascii=False, indent=4)
 
     print("Data written to products.json")
