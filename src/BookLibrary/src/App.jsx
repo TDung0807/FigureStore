@@ -10,11 +10,7 @@ const ITEMS_PER_PAGE = 8; // Number of items per page
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
-
-  // Calculate total pages
   const totalPages = Math.ceil(Product.length / ITEMS_PER_PAGE);
-
-  // Get items for the current page
   const currentItems = Product.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
@@ -30,10 +26,10 @@ const App = () => {
           {currentItems.map((item, index) => (
             <CardItem
               key={index}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              alt={item.alt}
+              title={item.Title}
+              image={item.ImageURL}
+              price={item.Price}
+              alt={item.Title}
             />
           ))}
         </div>
