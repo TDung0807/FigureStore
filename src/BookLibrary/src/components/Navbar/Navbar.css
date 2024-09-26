@@ -1,0 +1,68 @@
+.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 10%;
+    background: #2d2d32;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100%;
+}
+.logo{
+    font-size:32px;
+    color: #fff;
+    font-weight: 700;
+}
+.navbar a{
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.navbar a::before{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background:#fff;
+    transition: .3s;
+}
+.navbar a:hover::before{
+    width: 100%;
+}
+.input-wrapper{
+    background-color: white;
+    width: 45%;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0px 15px;
+    box-shadow: 0px 0px 5px #ddd;
+    display: flex;
+    align-self: center;
+    
+}
+input{
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    font-size: 1.25rem;
+    width: 100%;
+    margin-left: 5px;
+    outline: none;
+    
+}
+input:focus{
+    outline: none;
+}
+
+.searchIcon{
+    width: 16px;
+    height: 16px;
+    margin-right: 16px;
+    margin-top: 7px;
+}
