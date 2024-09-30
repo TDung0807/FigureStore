@@ -1,7 +1,7 @@
 namespace :import do
     desc "Import figures data from JSON file"
     task figures: :environment do
-      file_path = Rails.root.join('crawlData\products.json')
+      file_path = Rails.root.join('../../crawlData/products.json')
       file = File.read(file_path)
       json_data = JSON.parse(file)
       json_data.each do |data|
@@ -15,7 +15,7 @@ namespace :import do
           release_date: data['Release_date'],
           title: data['Title'],
           url: data['URL'],
-          ImageURL: data['ImageURL']
+          image_url: data['ImageURL']
         )
       end
   
