@@ -19,10 +19,13 @@ PostgreSQL:
 
 1. Backend
 Use terminal:
+** go to FigureStore_Api folder
 - Bundle install
 - rails db:create
 - rails db:migrate
+- rails import:figures
 - rails server
 
 2. Frontend
+** go to FigureStore folder
 - npm run dev
