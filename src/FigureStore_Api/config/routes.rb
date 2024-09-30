@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace :api do
     resources :figures, only: [:index]
+    resources :users, param: :username, only: [:show, :create, :update, :destroy]
   end
 end
