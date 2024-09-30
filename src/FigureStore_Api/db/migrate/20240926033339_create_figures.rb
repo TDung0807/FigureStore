@@ -1,10 +1,11 @@
 class CreateFigures < ActiveRecord::Migration[7.2]
   def change
-    create_table :figures do |t| 
+    create_table :figures, id: false do |t| 
+      t.string :id, primary_key: true 
       t.string :name
       t.string :brand
       t.string :material
-      t.decimal :price, precision: 8, scale: 2
+      t.integer :price
       t.integer :height
       t.date :release_date
       t.string :title
@@ -14,32 +15,33 @@ class CreateFigures < ActiveRecord::Migration[7.2]
       t.timestamps  
     end
 
-    create_table :users do |t|  
-      t.text :username
-      t.text :password
+    create_table :users, id: false do |t| 
+      t.string :id, primary_key: true 
+      t.string :username
+      t.string :password
       t.boolean :gender
       t.boolean :role
-      t.text :email
-      t.text :address
+      t.string :email
+      t.string :address
 
       t.timestamps
     end
 
-    create_table :carts do |t| 
-      t.text :id
-      t.text[] :figure_id 
+    create_table :carts, id: false do |t|  
+      t.string :id, primary_key: true 
+      t.string :figure_id, array: true, default: [] 
       t.integer :totalprice
 
       t.timestamps
     end
 
-    create_table :envoices do |t| 
-      t.text :id
-      t.text[] :figure_id 
+    create_table :envoices, id: false do |t|
+      t.string :id, primary_key: true 
+      t.string :figure_id, array: true, default: [] 
       t.integer :total_price
       t.date :date
-      t.text :user_id  
-      t.text :discount_code
+      t.string :user_id  
+      t.string :discount_code
       t.integer :discount_price
 
       t.timestamps
