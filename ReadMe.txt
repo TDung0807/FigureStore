@@ -28,4 +28,5 @@ Use terminal:
 
 2. Frontend
 ** go to FigureStore folder
+- npm install
 - npm run dev
