@@ -50,10 +50,10 @@ const App = () => {
           {currentItems.map((item, index) => (
             <CardItem
               key={index}
-              title={item.Title}
-              image={item.ImageURL}
-              price={item.Price}
-              alt={item.Title}
+              title={item.title}
+              image={item.image_url}
+              price={item.price}
+              alt={item.title}
             />
           ))}
         </div>
