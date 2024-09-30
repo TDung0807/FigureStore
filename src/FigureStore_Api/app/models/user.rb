@@ -1,3 +1,3 @@
 class Figure < ApplicationRecord
-    self.table_name = 'FigureSchema.User' # Use the schema prefix here
+    self.table_name = 'users' # Use the schema prefix here
 end

@@ -1,3 +1,3 @@
 class Figure < ApplicationRecord
-    self.table_name = 'FigureSchema.Cart' # Use the schema prefix here
+    self.table_name = 'carts' # Use the schema prefix here
 end
