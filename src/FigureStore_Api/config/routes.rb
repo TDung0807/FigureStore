@@ -11,6 +11,21 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  ####User actions
+  namespace :auth do
+    #Login: http://localhost:3000/auth/login - post
+    resources :login, only: [:create], controller: 'sessions'
+
+    #register: http://localhost:3000/auth/registrations - post
+    resources :registrations, only: [:create], controller: 'registrations'
+
+    #logout: http://localhost:3000/auth/logout - delete
+    delete :logout, to: "sessions#logout"
+
+    #logged_in: http://localhost:3000/auth/logout - get
+    get :logged_in, to: "sessions#logged_in"
+  end
+
   namespace :api do
     resources :figures, only: [:index]
     resources :users, param: :username, only: [:show, :create, :update, :destroy]
