@@ -1,73 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import CardItem from './components/CardItem/CardItem';
-import Pagination from './components/Pagination/Pagination';
-import './index.css';
-import axios from 'axios'; // Import axios if you're using it
-
-const ITEMS_PER_PAGE = 8; // Number of items per page
-
+import HomePage from './pages/home/Home';
+import AuthPage from './pages/auth/AuthPage';
+import ProductDetail from './pages/detail_pro/Detail_Product';
 const App = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [products, setProducts] = useState([]); // State to hold product data
-  const [loading, setLoading] = useState(true); // State to manage loading status
-  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
-  
-  // Fetch data from the API
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/api/figures'); 
-        console.log(response.data)
-        setProducts(response.data); 
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
-
-  const currentItems = products.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
-
-  if (loading) {
-    return <div>Loading...</div>; // Show loading message while data is being fetched
-  }
-
   return (
-    <div id="wrapper">
-      <div id="header">
-        <Navbar />
+    <Router>
+      <div style={{ backgroundColor: '#f4f4f4', minHeight: '100vh' }}>
+        <Routes>
+          <Route path="/auth" element={<AuthPage />} />
+          
+          <Route
+            path="*"
+            element={
+              <div id="wrapper">
+                <div id="header">
+                  <Navbar />
+                </div>
+                <div id="main">
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/figure/:id" element={<ProductDetail />} />
+                    <Route path="*" element={<Navigate to="/" />} />
+                  </Routes>
+                </div>
+                <div id="footer">
+                  <Footer />
+                </div>
+              </div>
+            }
+          />
+        </Routes>
       </div>
-      <div id="main">
-        <div className="container">
-          {currentItems.map((item, index) => (
-            <CardItem
-              key={index}
-              title={item.title}
-              image={item.image_url}
-              price={item.price}
-              alt={item.title}
-            />
-          ))}
-        </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
-      </div>
-      <div id="footer">
-        <Footer />
-      </div>
-    </div>
+    </Router>
   );
 };
+
 
 export default App;
