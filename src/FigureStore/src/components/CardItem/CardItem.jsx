@@ -1,20 +1,23 @@
-import React from 'react'
-import './CardItem.css'
-const CardItem = (props) => {
-    let newClassName = `color_bg ${props.alt}`
-    let bg_img = `url(${props.img})`
-    let { title, image, price, alt } = props
-    return (
-        <div class="card">
-            <img src={image} alt={alt} class="card-img"/>
-                <h3 class="card-title">{title}</h3>
-                <p class="card-price">{price}</p>
-                <div class="card-buttons">
-                    <button class="btn-buy">Buy</button>
-                    <button class="btn-addtocart">Add to Cart</button>
-                </div>
-        </div>
-    )
-}
+import React from 'react';
+import styles from './CardItem.module.css'; // Use CSS module
+import { FaShoppingCart } from 'react-icons/fa'; // Importing the cart icon
 
-export default CardItem
+const CardItem = (props) => {
+  const { title, image, price, alt } = props;
+
+  return (
+    <div className={styles.card}>
+      <img src={image} alt={alt} className={styles.cardImg} />
+      <h3 className={styles.cardTitle}>{title}</h3>
+      <p className={styles.cardPrice}>${price.toFixed(2)}</p>
+      <div className={styles.cardButtons}>
+        <button className={styles.btnBuy}>Buy</button>
+        <button className={styles.btnAddToCart}>
+          <FaShoppingCart className={styles.cartIcon} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default CardItem;

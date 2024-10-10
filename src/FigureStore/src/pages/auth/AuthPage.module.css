@@ -1,0 +1,136 @@
+/* AuthPage.module.css */
+
+.authContainer {
+  display: flex; 
+  height: 100vh; 
+}
+
+.imageColumn {
+  flex: 1; /* Image column takes 50% width */
+  position: relative; /* Relative position to manage slideshow */
+  overflow: hidden; /* Hide overflow */
+  display: flex; /* Center children in the column */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+}
+
+.slideshow {
+  position: absolute;
+  width: 80%; /* Adjusted width of the slideshow */
+  height: 80%; /* Adjusted height of the slideshow */
+  display: flex; 
+  justify-content: center; /* Center images horizontally */
+  align-items: center; /* Center images vertically */
+}
+
+.slide {
+  width: 100%; /* Each image takes full width of the slideshow */
+  height: auto; /* Auto height */
+  opacity: 0; /* Hide images initially */
+  transition: opacity 1s ease-in; /* Fade in transition */
+  position: absolute; /* Position absolute to stack images */
+  top: 50%; /* Align to center vertically */
+  left: 50%; /* Align to center horizontally */
+  transform: translate(-50%, -50%); /* Move image to center */
+}
+
+.slide.active {
+  opacity: 1; /* Show current image */
+}
+
+/* Auth column */
+.authColumn {
+  flex: 1; /* Auth column takes 50% width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* White background for auth column */
+}
+
+.authCard {
+  max-width: 400px; /* Max width of the card */
+  width: 100%; /* Make it responsive */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow */
+  overflow: hidden; /* Prevent overflow during animation */
+  box-sizing: border-box; /* Include padding and border in width/height */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.title {
+  text-align: center; /* Center title */
+  margin-bottom: 20px; /* Space below title */
+  color: #000; /* Black text color */
+}
+
+.formContainer {
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.formContainer.slide {
+  transform: translateX(-100%); /* Slide left when animating */
+}
+
+.inputGroup {
+  margin-bottom: 15px; /* Space between input groups */
+}
+
+label {
+  display: block; /* Block-level labels for better spacing */
+  margin-bottom: 5px; /* Space between label and input */
+  font-weight: bold; /* Bold label */
+  color: #333; /* Dark text color for label */
+}
+/* Spinner styling */
+.spinner {
+  width: 24px;
+  height: 24px;
+}
+
+input {
+  width: 100%; /* Full width inputs */
+  padding: 10px;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners for inputs */
+  box-sizing: border-box; /* Ensure padding is included in width */
+  transition: border-color 0.3s; /* Transition for input border */
+}
+
+input:focus {
+  border-color: #000; /* Change border color when focused */
+  outline: none; /* Remove default outline */
+}
+
+.submitButton {
+  display: inline-block;
+  width: 100%; /* Full-width button */
+  padding: 10px;
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #000; /* Black background for button */
+  color: white; /* White text color */
+  font-size: 16px; /* Button text size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.submitButton:hover {
+  background-color: #444; /* Change color on hover */
+}
+
+.toggleButton {
+  margin-top: 10px; /* Space above toggle button */
+  background: transparent; /* Transparent background */
+  border: none; /* No border */
+  color: #000; /* Black text color */
+  font-size: 14px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  text-align: center; /* Center text */
+}
+
+.toggleButton:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #444; /* Change color on hover */
+}

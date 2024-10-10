@@ -1,59 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-a {
-  text-decoration: none;
-}
-
-html, body, #root, #wrapper {
-  height: 100%;
+body {
+    background-color: #ff0000; /* Set your desired background color */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
 }
 
 #wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-#main {
-  flex: 1;
-  margin-left: 20px;
-  display: flex;
-  flex-direction: column; /* Stack rows vertically */
-  align-items: center; /* Center rows horizontally */
-}
-
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-  gap: 20px; /* Space between items */
-  width: 100%; /* Full width of the container */
-  max-width: 1200px; /* Adjust based on your design */
-  padding: 0 20px; /* Padding on the sides */
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .container {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
-  }
-}
-
-@media (max-width: 900px) {
-  .container {  
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    grid-template-columns: 1fr; /* 1 column for very small screens */
-  }
+    min-height: 100vh; /* Ensures the wrapper takes full height */
+    background-color: #f4f4f4; /* Optional: Ensure the wrapper has the same background color */
 }

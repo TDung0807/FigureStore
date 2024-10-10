@@ -1,67 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Card</title>
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+            height: 100vh; /* Full viewport height */
+            display: flex; /* Enable flexbox layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Gradient background */
+        }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+        .auth-page {
+            max-width: 400px; /* Max width of the card */
+            width: 100%; /* Make it responsive */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px; /* Rounded corners for the card */
+            background-color: white; /* Card background color */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
+            overflow: hidden; /* Prevents overflow during animation */
+            box-sizing: border-box; /* Include padding and border in width/height */
+        }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+        .form-container {
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+        .form-container.slide {
+            transform: translateX(-100%); /* Move left when animating */
+        }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
+        .auth-page form div {
+            margin-bottom: 15px;
+        }
+
+        .auth-page label {
+            display: block; /* Block-level labels for better spacing */
+            margin-bottom: 5px; /* Space between label and input */
+        }
+
+        .auth-page input {
+            width: 100%; /* Full width inputs */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px; /* Rounded corners for inputs */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        .auth-page button {
+            display: inline-block;
+            width: 100%; /* Full-width buttons */
+            padding: 10px;
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners for buttons */
+            background-color: #007bff; /* Button color */
+            color: white; /* Button text color */
+            font-size: 16px; /* Button text size */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Transition for hover effect */
+        }
+
+        .auth-page button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+        .auth-page button:focus {
+            outline: none; /* Remove default outline */
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Focus outline for accessibility */
+        }
+    </style>
 </head>
-
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+<body>
+    <div class="auth-page">
+        <h2>Login</h2>
+        <div class="form-container">
+            <form>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
 </body>
 </html>

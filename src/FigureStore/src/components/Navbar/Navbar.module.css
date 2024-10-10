@@ -1,0 +1,79 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    max-width: 1200px;
+    width: 100%;
+    padding: 10px 10%;
+    background: #2d2d32;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.searchInput {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    margin-left: 10px;
+    outline: none; /* Remove outline */
+    font-size: 16px;
+}
+
+.searchInput::placeholder {
+    color: #999; /* Placeholder color */
+}
+
+.navbar {
+    position: relative; /* Allows dropdown to be positioned */
+}
+
+.navItem {
+    position: relative; /* Allows dropdown to be positioned */
+    cursor: pointer;
+    color: #fff;
+    margin-left: 20px; /* Increased spacing */
+    transition: color 0.3s; /* Transition for color */
+}
+
+.navItem:hover {
+    color: #f0f0f0; /* Change color on hover */
+}
+
+.dropdown {
+    position: absolute;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Make sure dropdown is above other elements */
+    top: 100%; /* Position it below the nav item */
+    left: 0; /* Align with the nav item */
+    padding: 10px 0; /* Padding for dropdown */
+    width: 150px; /* Set a width for the dropdown */
+}
+
+.dropdownItem {
+    display: block; /* Makes the links block-level */
+    padding: 10px 20px; /* Padding for the links */
+    color: #333; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Transition for background */
+}
+
+.dropdownItem:hover {
+    background-color: #f0f0f0; /* Background on hover */
+}
