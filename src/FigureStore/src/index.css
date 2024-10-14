@@ -1,9 +1,22 @@
-body {
-    background-color: #ff0000; /* Set your desired background color */
-    font-family: Arial, sans-serif; /* Optional: Set a default font */
-}
+/* App.module.css */
 
-#wrapper {
-    min-height: 100vh; /* Ensures the wrapper takes full height */
-    background-color: #f4f4f4; /* Optional: Ensure the wrapper has the same background color */
-}
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4;
+  }
+  
+  .main-content {
+    flex: 1; /* Makes the main content take up available space */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding: 20px; /* Optional: Add some padding */
+    box-sizing: border-box; /* Ensure padding doesn’t affect width */
+  }
+  
+  body {
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif;
+    background-color: #ff0000; /* Global background color */
+  }
+  
