@@ -1,62 +1,71 @@
 .similarProductsContainer {
-    margin-top: 30px; /* Add margin above the similar products section */
-  }
-  
-  .productList {
-    display: flex;
-    overflow-x: auto; /* Allow horizontal scrolling */
-    gap: 10px; /* Space between products */
-    padding: 10px 0; /* Padding on top and bottom */
-  }
-  
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    width: 150px; /* Set a smaller width */
-    margin: 10px; /* Space between cards */
-    flex-shrink: 0; /* Prevent cards from shrinking */
-  }
-  
-  .cardImg {
-    width: 100%; /* Full width of the card */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  .cardTitle {
-    font-size: 14px; /* Smaller font size */
-    margin: 8px 0;
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide overflowing text */
-    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-  }
-  
-  .cardPrice {
-    font-size: 12px; /* Smaller font size */
-    color: #333;
-  }
-  
-  .cardButtons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px; /* Add margin to separate buttons */
-  }
-  
-  .btnBuy,
-  .btnAddToCart {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px; /* Smaller padding */
-    cursor: pointer;
-    font-size: 12px; /* Smaller font size */
-    transition: background-color 0.3s ease;
-  }
-  
-  .btnBuy:hover,
-  .btnAddToCart:hover {
-    background-color: #0056b3; /* Darker shade for hover */
-  }
-  
+  margin-top: 30px;
+}
+
+.productList {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+  margin: 10px;
+  flex-shrink: 0;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow by default */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slight scaling effect on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.cardImg {
+  width: 100%;
+  height: auto;
+  border-radius: 4px; /* Slightly rounded image */
+}
+
+.cardTitle {
+  font-size: 18px;
+  margin: 8px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardPrice {
+  font-size: 15px;
+  color: #fe3838;
+  font-weight: bold;
+}
+
+.cardButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.btnBuy,
+.btnAddToCart {
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease, opacity 0.3s; /* Smooth transition for hover */
+}
+
+.btnBuy:hover,
+.btnAddToCart:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  opacity: 0.9; /* Slight transparency effect */
+}

@@ -44,10 +44,14 @@ const HomePage = () => {
         {currentItems.map((item, index) => (
           <CardItem
             key={index}
+            id={item.id}
             title={item.title}
             image={item.image_url}
             price={item.price}
             alt={item.title}
+            onCardClick={() => console.log('Card clicked!')}
+            onBuyClick={() => console.log('Buy button clicked!')}
+            onAddToCartClick={() => console.log('Added to cart!')}
           />
         ))}
       </div>
