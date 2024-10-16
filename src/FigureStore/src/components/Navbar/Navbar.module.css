@@ -2,9 +2,8 @@
     position: sticky;
     top: 0;
     left: 0;
-    max-width: 1200px;
-    width: 100%;
-    padding: 10px 10%;
+    width: 99%;
+    padding: 5px;
     background: #2d2d32;
     display: flex;
     justify-content: space-between;
@@ -32,14 +31,12 @@
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 200px;
+    width: 400px;
     max-height: 300px;
     overflow-y: auto;
     z-index: 1000;
     margin-top: 5px;
 }
-
-
 
 .productItem {
     display: flex;
@@ -51,7 +48,6 @@
 
 .productItem:hover {
     background-color: #f1f1f1;
-    /* Highlight on hover */
 }
 
 .productImage {
@@ -103,20 +99,21 @@
 }
 
 .navbar {
-    position: relative;
-    /* Allows dropdown to be positioned */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navItem {
-    position: relative;
-    /* Allows dropdown to be positioned */
-    cursor: pointer;
-    color: #fff;
-    margin-left: 20px;
-    /* Increased spacing */
-    transition: color 0.3s;
-    /* Transition for color */
+    margin: 0 15px; /* Adjust spacing as needed */
 }
+
+.navLink {
+    text-decoration: none;
+    color: #ffffff; /* Adjust text color */
+    font-weight: bold;
+}
+
 
 .navItem:hover {
     color: #f0f0f0;

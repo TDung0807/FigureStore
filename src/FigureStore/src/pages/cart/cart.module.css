@@ -1,79 +1,150 @@
+.cartContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%);
+    min-height: 100vh;
+    border-radius: 10px; /* Added rounded corners */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+}
+
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    height: 500px; /* Set a maximum height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: none; /* For Firefox */
+}
+
+.itemsList::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
 .cartItem {
     display: flex;
     align-items: center;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    padding: 15px; /* Increased padding */
+    width: 100%; 
     border-radius: 8px;
-    margin-bottom: 10px;
-    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s; /* Add transition for shadow */
+}
+
+.cartItem:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+}
+
+.checkbox {
+    margin-right: 10px;
+    width: 20px; /* Set a smaller width */
+    height: 20px; /* Set a smaller height */
+    transform: scale(0.9); /* Scale down the checkbox */
+    cursor: pointer; /* Ensure the pointer changes when hovering over the checkbox */
 }
 
 .cartImage {
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-    border-radius: 5px;
+    width: 120px; /* Increased width for a better view */
+    max-height: 120px; /* Increased max height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
 }
 
 .cartDetails {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    margin-left: 15px;
+    gap: 5px; /* Adjusted gap for better spacing */
+}
+
+.priceText {
+    font-size: 18px;
+    color: #e63946;
+    font-weight: bold;
 }
 
 .quantityContainer {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 10px;
-    justify-content: flex-end;
 }
 
 .quantityButton {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Increased padding */
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.removeButton {
-    margin-left: 15px;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: transparent;
-    cursor: pointer;
-    color: #ff0019;
-    transition: color 0.3s, transform 0.3s;
-    font-size: 24px;
+.quantityButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.quantityButton:hover:not(:disabled) {
+    background-color: #555;
 }
 
 .quantityDisplay {
-    margin: 0 10px;
     font-size: 18px;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
+    margin: 0 10px;
 }
 
-.scrollContainer {
-    max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid #e0e0e0;
-    padding: 10px;
-    background-color: #fff;
-}
-
-.priceText {
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-    margin: 10px 0;
+.removeButton {
+    color: #ff1744;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .removeButton:hover {
-    color: #c82333;
-    transform: scale(1.1);
+    color: #d50000;
+    transform: scale(1.05);
+}
+
+.totalContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* Add some space above */
+    padding: 15px; /* Increased padding */
+    border-top: 1px solid #e0e0e0;
+    background-color: #ffffff; /* Optional: white background for the total section */
+    border-radius: 0 0 8px 8px; /* Rounded corners for the total section */
+}
+
+.checkoutButton {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.checkoutButton:hover {
+    background-color: #218838;
+}
+
+.emptyCart {
+    text-align: center;
+    padding: 50px 0;
+    font-size: 24px;
+    color: #777;
 }
