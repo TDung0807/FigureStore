@@ -12,51 +12,7 @@ const CartPage = () => {
             quantity: 2,
             imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
         },
-        {
-            id: 2,
-            title: "Nendoroid #2593 Days with My Stepsister Saki Ayase",
-            price: 1450000,
-            quantity: 2,
-            imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
-        },
-        {
-            id: 2,
-            title: "Nendoroid #2593 Days with My Stepsister Saki Ayase",
-            price: 1450000,
-            quantity: 2,
-            imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
-        }, {
-            id: 2,
-            title: "Nendoroid #2593 Days with My Stepsister Saki Ayase",
-            price: 1450000,
-            quantity: 2,
-            imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
-        }, {
-            id: 2,
-            title: "Nendoroid #2593 Days with My Stepsister Saki Ayase",
-            price: 1450000,
-            quantity: 2,
-            imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
-        }, {
-            id: 2,
-            title: "Nendoroid #2593 Days with My Stepsister Saki Ayase",
-            price: 1450000,
-            quantity: 2,
-            imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
-        }, {
-            id: 2,
-            title: "Nendoroid #2593 Days with My Stepsister Saki Ayase",
-            price: 1450000,
-            quantity: 2,
-            imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
-        }, {
-            id: 2,
-            title: "Nendoroid #2593 Days with My Stepsister Saki Ayase",
-            price: 1450000,
-            quantity: 2,
-            imageUrl: "//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223",
-        },
-        // Add more cart items as needed
+        // ... other items
     ]);
 
     const handleRemove = (id) => {
@@ -69,20 +25,24 @@ const CartPage = () => {
         ));
     };
 
+    const handleCheckout = () => {
+        console.log("Proceeding to checkout...");
+    };
+
     const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     return (
         <div className={styles.cartContainer}>
-            <h1>Your Cart</h1>
             {cartItems.length === 0 ? (
-                <p>Your cart is empty.</p>
+                <p className={styles.emptyCart}>Your cart is empty.</p>
             ) : (
-                <div className={styles.scrollContainer}>
+                <div className={styles.itemsList}>
                     {cartItems.map(item => (
                         <div key={item.id} className={styles.cartItem}>
+                            <input type="checkbox" className={styles.checkbox} />
                             <img src={item.imageUrl} alt={item.title} className={styles.cartImage} />
                             <div className={styles.cartDetails}>
-                                <h2>{item.title}</h2>
+                                <h2 className={styles.itemTitle}>{item.title}</h2>
                                 <p className={styles.priceText}>Price: {item.price.toLocaleString('vi-VN')} VND</p>
                                 <div className={styles.quantityContainer}>
                                     <button
@@ -99,20 +59,23 @@ const CartPage = () => {
                                     >
                                         +
                                     </button>
-                                    <MdDelete
-                                        onClick={() => handleRemove(item.id)}
-                                        className={styles.removeButton}
-                                        size={24} // Set the icon size
-                                    />
                                 </div>
                             </div>
+                            <MdDelete
+                                onClick={() => handleRemove(item.id)}
+                                className={styles.removeButton}
+                                size={24}
+                                color='red'
+                            />
                         </div>
                     ))}
                 </div>
             )}
-            <h2>Total: {totalPrice.toLocaleString('vi-VN')} VND</h2>
+            <div className={styles.totalContainer}>
+                <h2>Total: {totalPrice.toLocaleString('vi-VN')} VND</h2>
+                <button onClick={handleCheckout} className={styles.checkoutButton}>Checkout</button>
+            </div>
         </div>
-
     );
 };
 

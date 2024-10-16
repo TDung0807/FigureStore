@@ -1,0 +1,25 @@
+.payment-page {
+    position: relative;
+    height: 100vh; /* Chiếm toàn bộ chiều cao của màn hình */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Hoặc màu nền bạn muốn */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu mờ cho nền */
+    z-index: 1; /* Đảm bảo lớp mờ nằm trên cùng */
+  }
+  
+  .qr-code {
+    z-index: 2; /* Đảm bảo hình ảnh QR nằm trên lớp mờ */
+    width: 300px; /* Kích thước hình ảnh QR */
+    height: auto;
+  }
+  

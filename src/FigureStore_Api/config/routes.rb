@@ -27,7 +27,12 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :figures, only: [:index]
+    resources :figures, only: [:index] do
+      collection do
+        get :search
+      end
+    end
+    
     resources :users, param: :username, only: [:show, :create, :update, :destroy]
   end
 end

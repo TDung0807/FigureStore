@@ -1,90 +1,93 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css'; // Use CSS module
-import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isDropdownSearchOpen, setIsDropdownSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isSearch, setIsSearch] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const navigate = useNavigate();
-  // Sample product data (you can replace this with actual data)
-  const products = [
-    {
-      id: 1,
-      title: 'Product 1',
-      imageUrl: '//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223',
-    },
-    {
-      id: 2,
-      title: 'Product 2',
-      imageUrl: '//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223',
-    },
-    {
-      id: 3,
-      title: 'Product 3',
-      imageUrl: '//bizweb.dktcdn.net/thumb/large/100/477/898/products/21-1725976263359.jpg?v=1725976267223',
-    },
-    // Add more products as needed
-  ];
 
-  const filteredProducts = products.filter(product =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const fetchProducts = async (query) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/api/figures/search?query=${query}`);
+      console.log(response)
+      setFilteredProducts(response.data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
+
   const handleClick = (id) => {
     navigate(`/figure/${id}`);
-    setIsDropdownSearchOpen(false);
-  }
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    // setSearchQuery('');
+    // setIsSearch(false);
   };
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-    setIsDropdownSearchOpen(e.target.value.length > 0); 
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    if (query) {
+      fetchProducts(query);
+    } else {
+      setFilteredProducts([]);
+    }
+  };
+
+  const toggleSearch = () => {
+    setIsSearch(prev => !prev);
   };
 
   return (
     <header className={styles.header}>
       <a href="/" className={styles.logo}>Logo</a>
       <div className={styles.inputWrapper}>
-        {/* <div className={styles.searchIcon}>
-          <FaSearch />
-        </div> */}
-        <input 
-          className={styles.searchInput} 
-          placeholder="Type to search..." 
+        <input
+          className={styles.searchInput}
+          placeholder="Type to search..."
           value={searchQuery}
           onChange={handleSearchChange}
+          onFocus={toggleSearch} // Open dropdown on focus
+          onBlur={() => setIsSearch(false)} // Close dropdown on blur
         />
-        {/* Product dropdown will be centered below the search input */}
-        {isDropdownSearchOpen && filteredProducts.length > 0 && (
+        {isSearch && filteredProducts.length > 0 && (
           <div className={styles.productDropdown}>
             {filteredProducts.map(product => (
-              <div key={product.id} className={styles.productItem} onClick={handleClick(product.id)}>
-                <img src={product.imageUrl} alt={product.title} className={styles.productImage} />
-                <span>{product.title}</span>
+              <div
+                key={product.id}
+                className={styles.productItem}
+                onClick={() => handleClick(product.id)}
+              >
+                <img
+                  src={product.imageUrl}
+                  className={styles.productImage}
+                />
+                <span>
+                  {product.title.length > 40 ? `${product.title.substring(0, 40)}...` : product.title}
+                </span>
               </div>
             ))}
           </div>
         )}
       </div>
       <nav className={styles.navbar}>
-        <div className={styles.navItem} onClick={toggleDropdown}>
-          <strong>Menu</strong>
-          {isDropdownOpen && (
-            <div className={styles.dropdown}>
-              <a href="/" className={styles.dropdownItem}>Home</a>
-              <a href="/" className={styles.dropdownItem}>Contact</a>
-              <a href="/auth" className={styles.dropdownItem}>Sign In</a>
-            </div>
-          )}
+        <div className={styles.navItem}>
+          <a href="/" className={styles.navLink}>Home</a>
+        </div>
+        <div className={styles.navItem}>
+          <a href="/contact" className={styles.navLink}>Contact</a>
+        </div>
+        <div className={styles.navItem}>
+          <a href="/auth" className={styles.navLink}>Sign In</a>
+        </div>
+        <div className={styles.navItem}>
+          <a href="/cart" className={styles.navLink}>Cart</a>
         </div>
       </nav>
     </header>
   );
-  
 };
 
 export default Navbar;

@@ -10,7 +10,8 @@ const CardItem = ({id, title, image, price, alt, onCardClick, onBuyClick, onAddT
     currency: 'VND',
   }).format(price);
   const handleCardClick = () => {
-    navigate(`/figure/${id}`);
+    // navigate(`/figure/${id}`);
+    navigate(`/payment`);
   };
   return (
     <div
