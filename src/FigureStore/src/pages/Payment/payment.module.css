@@ -1,25 +1,34 @@
-.payment-page {
-    position: relative;
-    height: 100vh; /* Chiếm toàn bộ chiều cao của màn hình */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff; /* Hoặc màu nền bạn muốn */
-  }
-  
-  .overlay {
-    position: absolute;
+.dialogOverlay {
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu mờ cho nền */
-    z-index: 1; /* Đảm bảo lớp mờ nằm trên cùng */
-  }
-  
-  .qr-code {
-    z-index: 2; /* Đảm bảo hình ảnh QR nằm trên lớp mờ */
-    width: 300px; /* Kích thước hình ảnh QR */
+    background-color: rgba(0, 0, 0, 0.7); /* Màu nền mờ để tạo hiệu ứng dialog */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Đảm bảo nằm trên cùng */
+}
+
+.dialogContent {
+    background-color: #ffffff; /* Màu nền của dialog */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Bóng đổ cho dialog */
+    text-align: center;
+    width: 90%; /* Chiều rộng của dialog */
+    max-width: 400px; /* Chiều rộng tối đa */
+}
+
+.qrCode {
+    width: 400px; /* Kích thước hình ảnh QR */
     height: auto;
-  }
-  
+    margin-bottom: 20px; /* Khoảng cách giữa mã QR và văn bản */
+}
+
+.paymentText {
+    color: #000; /* Màu sắc văn bản */
+    font-size: 18px; /* Kích thước chữ */
+    text-align: center; /* Căn giữa văn bản */
+}
