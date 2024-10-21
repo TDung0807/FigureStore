@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     #logout: http://localhost:3000/auth/logout - delete
     delete :logout, to: "sessions#logout"
 
-    #logged_in: http://localhost:3000/auth/logout - get
+    #logged_in: http://localhost:3000/auth/logged_in - get
     get :logged_in, to: "sessions#logged_in"
   end
 
