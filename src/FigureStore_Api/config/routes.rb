@@ -32,7 +32,8 @@ Rails.application.routes.draw do
         get :search
       end
     end
-    
+    #api/figure/:id
+    get 'figure/:id', to: 'figures#detail', as: 'api_figure_detail'
     resources :users, param: :username, only: [:show, :create, :update, :destroy]
   end
 end
