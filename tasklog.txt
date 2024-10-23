@@ -1,0 +1,8 @@
+Dung:
+- design cart database
+- api cart
+
+Puc:
+- border image(sign in & sign up page)
+- change "sign in" to "profile" if logged in (header)
+- detail page
