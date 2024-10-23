@@ -14,19 +14,6 @@ class CreateFigures < ActiveRecord::Migration[7.2]
 
       t.timestamps  
     end
-
-    # create_table :users, id: false do |t| 
-    #   t.string :id, primary_key: true 
-    #   t.string :username
-    #   t.string :password
-    #   t.boolean :gender
-    #   t.boolean :role
-    #   t.string :email
-    #   t.string :address
-
-    #   t.timestamps
-    # end
-
     create_table :carts, id: false do |t|  
       t.string :id, primary_key: true 
       t.string :figure_id, array: true, default: [] 
