@@ -32,6 +32,14 @@ Rails.application.routes.draw do
         get :search
       end
     end
+
+    ## cart
+    get '/cart', to: 'carts#show'
+    post '/cart/add_item', to: 'carts#add_item'
+    put '/cart/update_item', to: 'carts#update_item'
+    delete '/cart/delete_item', to: 'carts#delete_item'
+
+    
     #api/figure/:id
     get 'figure/:id', to: 'figures#detail', as: 'api_figure_detail'
     resources :users, param: :username, only: [:show, :create, :update, :destroy]
