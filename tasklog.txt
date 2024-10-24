@@ -1,6 +1,4 @@
 Dung:
-- design cart database
-- api cart
 
 Puc:
 - border image(sign in & sign up page)
