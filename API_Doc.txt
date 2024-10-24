@@ -1,0 +1,63 @@
+----------------USER----------------
+    Body:{
+            "user":{
+                "email":"admin",
+                "password":"admin"
+            }
+        }
+- Register: http://localhost:3000/auth/registrations
+    method: Post
+    require: Body
+    return: 200 | 400
+
+- Login: http://localhost:3000/auth/login
+    method: Post
+    require: Body
+    return: 200 | 401
+
+- Logout: http://localhost:3000/auth/logout
+    method: Delete
+    require: 
+    return: 200 
+
+- Logged_in: http://localhost:3000/auth/logged_in
+    method: Get
+    require: 
+    return: true | false
+
+
+----------------Figure----------------
+
+- Data: http://localhost:3000/api/figures
+    method: Get
+    require:
+    return: data - json
+
+- Search: http://localhost:3000/api/figures/:id
+    method: Get
+    require: Params
+    return: data - json
+
+
+----------------Cart----------------
+
+        Body:{
+                {
+                    "figure_id": "36556084",
+                    "quantity": 2     
+                }
+            }
+- Get cart: http://localhost:3000/api/cart
+    method: Get
+    require: 
+    return: 200
+
+- Add to cart: http://localhost:3000/api/cart/add_item
+    method: Post
+    require: Body
+    return: 200 | 400 | 401 | 402
+
+- Add to cart: http://localhost:3000/api/cart/update_item
+    method: Post
+    require: Body
+    return: 200 | 400 | 401 | 402
