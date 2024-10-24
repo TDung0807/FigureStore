@@ -21,6 +21,7 @@ PostgreSQL:
 Use terminal:
 ** go to FigureStore_Api folder
 - Bundle install
+- rails db:drop
 - rails db:create
 - rails db:migrate
 - rails import:figures
